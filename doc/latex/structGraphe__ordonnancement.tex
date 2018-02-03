@@ -1,0 +1,231 @@
+\hypertarget{structGraphe__ordonnancement}{}\section{Graphe\+\_\+ordonnancement Struct Reference}
+\label{structGraphe__ordonnancement}\index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{structGraphe__ordonnancement_a6707dbf1e9b59f2218b9d38f913daaec}{afficher\+\_\+taches} () const \hypertarget{structGraphe__ordonnancement_a6707dbf1e9b59f2218b9d38f913daaec}{}\label{structGraphe__ordonnancement_a6707dbf1e9b59f2218b9d38f913daaec}
+
+\begin{DoxyCompactList}\small\item\em Afficher toutes les taches de l\textquotesingle{}ordonnancement. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphe__ordonnancement_acbfe756098829425ab73e786b3e9980c}{map\+\_\+arc\+\_\+init} ()\hypertarget{structGraphe__ordonnancement_acbfe756098829425ab73e786b3e9980c}{}\label{structGraphe__ordonnancement_acbfe756098829425ab73e786b3e9980c}
+
+\begin{DoxyCompactList}\small\item\em Configurer les variables membres map\+\_\+arc, taches\+\_\+t et taches\+\_\+map\+\_\+t. \end{DoxyCompactList}\item 
+bool \hyperlink{structGraphe__ordonnancement_af2662be9ddd82e173a4c82977a032004}{top\+\_\+sort} ()
+\begin{DoxyCompactList}\small\item\em faire un tri topologique de toutes les taches. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphe__ordonnancement_afba2fe9491a6f749357db158d7b30694}{initialiser\+\_\+matrice} ()\hypertarget{structGraphe__ordonnancement_afba2fe9491a6f749357db158d7b30694}{}\label{structGraphe__ordonnancement_afba2fe9491a6f749357db158d7b30694}
+
+\begin{DoxyCompactList}\small\item\em Initialiser la matrice d\textquotesingle{}adjacence et la matrice des valeurs. Allouer la memoire dynamiquement pour ces deux matrices. Initialiser toutes les valeurs dans la matrice a -\/1. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphe__ordonnancement_a8ea7abdedb4dd3e633e33a045c67d276}{remplir\+\_\+matrice} ()
+\begin{DoxyCompactList}\small\item\em Configurer la matrice d\textquotesingle{}adjacence et la matrice des valeurs. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphe__ordonnancement_a15c6ff88b2c602e76eb1872b26b6cde9}{afficher\+\_\+matrice} (int) const 
+\begin{DoxyCompactList}\small\item\em Afficher la matrice d\textquotesingle{}adjacence ou la matrice des valeurs. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphe__ordonnancement_abc46cb894b0b73c4ff38f643b4202d79}{liberer\+\_\+matrice} ()\hypertarget{structGraphe__ordonnancement_abc46cb894b0b73c4ff38f643b4202d79}{}\label{structGraphe__ordonnancement_abc46cb894b0b73c4ff38f643b4202d79}
+
+\begin{DoxyCompactList}\small\item\em Liberer les memoires anciennement allouees a la matrice d\textquotesingle{}adjacence. \end{DoxyCompactList}\item 
+int \hyperlink{structGraphe__ordonnancement_a4309a77a63954f00492c29b8da852822}{rang} (\hyperlink{structTache}{Tache} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Calculer le rang pour une tache (fonction recursive). \end{DoxyCompactList}\item 
+void \hyperlink{structGraphe__ordonnancement_a230eaa6a41aba85c48bf7850bcb9460e}{set\+\_\+rang} ()\hypertarget{structGraphe__ordonnancement_a230eaa6a41aba85c48bf7850bcb9460e}{}\label{structGraphe__ordonnancement_a230eaa6a41aba85c48bf7850bcb9460e}
+
+\begin{DoxyCompactList}\small\item\em Calculer les rangs pour toutes les taches. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphe__ordonnancement_a5a1da43861620550f8ef9e12583d7006}{set\+\_\+max\+\_\+rang} ()
+\begin{DoxyCompactList}\small\item\em Calculer la valeur maximum des rangs de toutes les taches, et alloue cette valeur a la variable membre max\+\_\+rang. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphe__ordonnancement_aee74c4602cbe1807997f7f6f0636003c}{set\+\_\+hash\+\_\+table} ()
+\begin{DoxyCompactList}\small\item\em Configurer la mini table de hashage vv contenant les pointeurs vers des taches de rangs differents. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphe__ordonnancement_ad3ed1ec70808bed93577b145da2d8f84}{calculer\+\_\+date\+\_\+tot} ()\hypertarget{structGraphe__ordonnancement_ad3ed1ec70808bed93577b145da2d8f84}{}\label{structGraphe__ordonnancement_ad3ed1ec70808bed93577b145da2d8f84}
+
+\begin{DoxyCompactList}\small\item\em Calculer la date au plus tot pour toutes les taches. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphe__ordonnancement_a88bdf78ab25cf63239c2ca969957a8f3}{calculer\+\_\+date\+\_\+tard} ()\hypertarget{structGraphe__ordonnancement_a88bdf78ab25cf63239c2ca969957a8f3}{}\label{structGraphe__ordonnancement_a88bdf78ab25cf63239c2ca969957a8f3}
+
+\begin{DoxyCompactList}\small\item\em Calculer la date au plus tard pour toutes les taches. \end{DoxyCompactList}\item 
+void \hyperlink{structGraphe__ordonnancement_a2df58912274a27004b7ee1b309961474}{afficher\+\_\+gantt} (int)
+\begin{DoxyCompactList}\small\item\em Afficher le diagramme de gantt. Si choix == 0, alors afficher selon la date au plus tot. Si choix == 1, alors afficher selon la date au plus tard. Sinon, afficher une erreur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries nb\+\_\+taches} \{ \}\hypertarget{structGraphe__ordonnancement_a56005919cc51b83f976ac419ad9db598}{}\label{structGraphe__ordonnancement_a56005919cc51b83f976ac419ad9db598}
+
+\item 
+int \hyperlink{structGraphe__ordonnancement_a401dd0e1053f6d1c6673b8da7cebeca4}{nb\+\_\+sommets} \{ \}
+\item 
+map$<$ char, \hyperlink{structTache}{Tache} $\ast$ $>$ \hyperlink{structGraphe__ordonnancement_ae3827ffef7da6cfa9310c1329ba388ea}{taches\+\_\+map}
+\item 
+vector$<$ \hyperlink{structTache}{Tache} $>$ {\bfseries taches}\hypertarget{structGraphe__ordonnancement_a8bd4801b5540a85a3150c80f4db7d3e5}{}\label{structGraphe__ordonnancement_a8bd4801b5540a85a3150c80f4db7d3e5}
+
+\item 
+string \hyperlink{structGraphe__ordonnancement_afd7e0bf2bd8319f8b30467ee6759f3a0}{etats\+\_\+initiaux}
+\item 
+string \hyperlink{structGraphe__ordonnancement_a4329a36bd10f27bb0076557a1a8f3029}{etats\+\_\+finals}
+\item 
+string \hyperlink{structGraphe__ordonnancement_ab49a7a92f5595848655c34ee6cb71233}{etats}
+\item 
+string \hyperlink{structGraphe__ordonnancement_ad1424e58f4804d619a42098e7d0a5614}{contraintes}
+\item 
+int $\ast$$\ast$ \hyperlink{structGraphe__ordonnancement_a0088470c31eb4a734f8cbf3ef6906ad6}{Madj} \{ \}
+\item 
+int $\ast$$\ast$ \hyperlink{structGraphe__ordonnancement_afd38a144a1165aa9b03c71ef16c43e49}{Mval} \{ \}
+\item 
+int \hyperlink{structGraphe__ordonnancement_a6aa4fd24dfbccf0929b893cb93e7fb6b}{max\+\_\+rang} \{ -\/1 \}
+\item 
+vector$<$ std\+::vector$<$ \hyperlink{structTache}{Tache} $\ast$ $>$ $>$ \hyperlink{structGraphe__ordonnancement_a2e79a72fc442a1b9ea9734d40905d300}{vv}
+\item 
+map$<$ char, \hyperlink{structTache}{Tache} $\ast$ $>$ \hyperlink{structGraphe__ordonnancement_a194953cc290bf1c5c29ae162b988f422}{taches\+\_\+map\+\_\+t}
+\item 
+vector$<$ \hyperlink{structTache}{Tache} $>$ {\bfseries taches\+\_\+t}\hypertarget{structGraphe__ordonnancement_a63b206bacc1d913016748955cc74a193}{}\label{structGraphe__ordonnancement_a63b206bacc1d913016748955cc74a193}
+
+\item 
+map$<$ pair$<$ char, char $>$, \hyperlink{structArc}{Arc} $>$ {\bfseries map\+\_\+arc}\hypertarget{structGraphe__ordonnancement_affaa4d804d15276ffa6049e94b79984f}{}\label{structGraphe__ordonnancement_affaa4d804d15276ffa6049e94b79984f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!afficher\+\_\+gantt@{afficher\+\_\+gantt}}
+\index{afficher\+\_\+gantt@{afficher\+\_\+gantt}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{afficher\+\_\+gantt(int)}{afficher_gantt(int)}}]{\setlength{\rightskip}{0pt plus 5cm}void Graphe\+\_\+or\+::afficher\+\_\+gantt (
+\begin{DoxyParamCaption}
+\item[{int}]{choix}
+\end{DoxyParamCaption}
+)}\hypertarget{structGraphe__ordonnancement_a2df58912274a27004b7ee1b309961474}{}\label{structGraphe__ordonnancement_a2df58912274a27004b7ee1b309961474}
+
+
+Afficher le diagramme de gantt. Si choix == 0, alors afficher selon la date au plus tot. Si choix == 1, alors afficher selon la date au plus tard. Sinon, afficher une erreur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em choix} & entier a passer en parametre pour cette fonction. \\
+\hline
+\end{DoxyParams}
+\index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!afficher\+\_\+matrice@{afficher\+\_\+matrice}}
+\index{afficher\+\_\+matrice@{afficher\+\_\+matrice}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{afficher\+\_\+matrice(int) const }{afficher_matrice(int) const }}]{\setlength{\rightskip}{0pt plus 5cm}void Graphe\+\_\+or\+::afficher\+\_\+matrice (
+\begin{DoxyParamCaption}
+\item[{int}]{choix}
+\end{DoxyParamCaption}
+) const}\hypertarget{structGraphe__ordonnancement_a15c6ff88b2c602e76eb1872b26b6cde9}{}\label{structGraphe__ordonnancement_a15c6ff88b2c602e76eb1872b26b6cde9}
+
+
+Afficher la matrice d\textquotesingle{}adjacence ou la matrice des valeurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em choix} & si egal a 0, alors afficher la matrice d\textquotesingle{}adjacence. si egal a 1, alors afficher la matrice des valeurs. \\
+\hline
+\end{DoxyParams}
+\index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!rang@{rang}}
+\index{rang@{rang}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{rang(\+Tache $\ast$t)}{rang(Tache *t)}}]{\setlength{\rightskip}{0pt plus 5cm}int Graphe\+\_\+or\+::rang (
+\begin{DoxyParamCaption}
+\item[{{\bf Tache} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{structGraphe__ordonnancement_a4309a77a63954f00492c29b8da852822}{}\label{structGraphe__ordonnancement_a4309a77a63954f00492c29b8da852822}
+
+
+Calculer le rang pour une tache (fonction recursive). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & pointeur vers une tache quelconque. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rang de la tache courante. 
+\end{DoxyReturn}
+\index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!remplir\+\_\+matrice@{remplir\+\_\+matrice}}
+\index{remplir\+\_\+matrice@{remplir\+\_\+matrice}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{remplir\+\_\+matrice()}{remplir_matrice()}}]{\setlength{\rightskip}{0pt plus 5cm}void Graphe\+\_\+or\+::remplir\+\_\+matrice (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{structGraphe__ordonnancement_a8ea7abdedb4dd3e633e33a045c67d276}{}\label{structGraphe__ordonnancement_a8ea7abdedb4dd3e633e33a045c67d276}
+
+
+Configurer la matrice d\textquotesingle{}adjacence et la matrice des valeurs. 
+
+Remplir la matrice (Etape 1). En utilisant tous les contraintes de toutes les taches.
+
+Remplir la matrice (Etape 2). Mettre les relatoins entre \char`\"{}a\char`\"{} et les etats initiaux dans le tableau.
+
+Remplir la matrice (Etape 3). Mettre les relations entre \char`\"{}z\char`\"{} et les etats finals dans le tableau.\index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!set\+\_\+hash\+\_\+table@{set\+\_\+hash\+\_\+table}}
+\index{set\+\_\+hash\+\_\+table@{set\+\_\+hash\+\_\+table}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{set\+\_\+hash\+\_\+table()}{set_hash_table()}}]{\setlength{\rightskip}{0pt plus 5cm}void Graphe\+\_\+or\+::set\+\_\+hash\+\_\+table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{structGraphe__ordonnancement_aee74c4602cbe1807997f7f6f0636003c}{}\label{structGraphe__ordonnancement_aee74c4602cbe1807997f7f6f0636003c}
+
+
+Configurer la mini table de hashage vv contenant les pointeurs vers des taches de rangs differents. 
+
+Mettre des taches dans une table de hashage selon les rangs des taches, configurer la variable membre vv. \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!set\+\_\+max\+\_\+rang@{set\+\_\+max\+\_\+rang}}
+\index{set\+\_\+max\+\_\+rang@{set\+\_\+max\+\_\+rang}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{set\+\_\+max\+\_\+rang()}{set_max_rang()}}]{\setlength{\rightskip}{0pt plus 5cm}void Graphe\+\_\+or\+::set\+\_\+max\+\_\+rang (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{structGraphe__ordonnancement_a5a1da43861620550f8ef9e12583d7006}{}\label{structGraphe__ordonnancement_a5a1da43861620550f8ef9e12583d7006}
+
+
+Calculer la valeur maximum des rangs de toutes les taches, et alloue cette valeur a la variable membre max\+\_\+rang. 
+
+Calculer la valeur maximum des rangs des taches, et allouer cette valeur a la variable membre max\+\_\+rang. \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!top\+\_\+sort@{top\+\_\+sort}}
+\index{top\+\_\+sort@{top\+\_\+sort}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{top\+\_\+sort()}{top_sort()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Graphe\+\_\+or\+::top\+\_\+sort (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{structGraphe__ordonnancement_af2662be9ddd82e173a4c82977a032004}{}\label{structGraphe__ordonnancement_af2662be9ddd82e173a4c82977a032004}
+
+
+faire un tri topologique de toutes les taches. 
+
+Dans theorie des graphes, un tri topolotique d\textquotesingle{}un graphe oriente sans circuit est un ordre lineaire dans lequel chaque sommet se trouve avant tous ses successeurs (si le somment possede des successeurs).
+
+Chaque graphe oriente sans circuit possede un ou plusieurs tries topologiques.
+
+Si on n\textquotesingle{}arrive pas a faire un tri topologique, alors qu\textquotesingle{}il y a forcement au moins un circuit dans le graphe. C\textquotesingle{}est comme cela qu\textquotesingle{}on verifie s\textquotesingle{}il existe des circuits dans un graphe oriente.
+
+\begin{DoxyReturn}{Returns}
+true s\textquotesingle{}il y a des circuits, sinon retourne false. 
+\end{DoxyReturn}
+Vecteur contenant tous les etats initiaux (les taches n\textquotesingle{}ayant pas de predecesseurs).
+
+\subsection{Member Data Documentation}
+\index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!contraintes@{contraintes}}
+\index{contraintes@{contraintes}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{contraintes}{contraintes}}]{\setlength{\rightskip}{0pt plus 5cm}string Graphe\+\_\+ordonnancement\+::contraintes}\hypertarget{structGraphe__ordonnancement_ad1424e58f4804d619a42098e7d0a5614}{}\label{structGraphe__ordonnancement_ad1424e58f4804d619a42098e7d0a5614}
+Chaine de caracteres qui est la concatenation de toutes les noms des predecesseurs (contraintes) des taches. \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!etats@{etats}}
+\index{etats@{etats}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{etats}{etats}}]{\setlength{\rightskip}{0pt plus 5cm}string Graphe\+\_\+ordonnancement\+::etats}\hypertarget{structGraphe__ordonnancement_ab49a7a92f5595848655c34ee6cb71233}{}\label{structGraphe__ordonnancement_ab49a7a92f5595848655c34ee6cb71233}
+Chaine de caracteres qui est la concatenation de toutes les noms des taches. \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!etats\+\_\+finals@{etats\+\_\+finals}}
+\index{etats\+\_\+finals@{etats\+\_\+finals}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{etats\+\_\+finals}{etats_finals}}]{\setlength{\rightskip}{0pt plus 5cm}string Graphe\+\_\+ordonnancement\+::etats\+\_\+finals}\hypertarget{structGraphe__ordonnancement_a4329a36bd10f27bb0076557a1a8f3029}{}\label{structGraphe__ordonnancement_a4329a36bd10f27bb0076557a1a8f3029}
+Chaine de caracteres qui est la concatenation de toutes les noms des taches n\textquotesingle{}ayant pas de successeurs. \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!etats\+\_\+initiaux@{etats\+\_\+initiaux}}
+\index{etats\+\_\+initiaux@{etats\+\_\+initiaux}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{etats\+\_\+initiaux}{etats_initiaux}}]{\setlength{\rightskip}{0pt plus 5cm}string Graphe\+\_\+ordonnancement\+::etats\+\_\+initiaux}\hypertarget{structGraphe__ordonnancement_afd7e0bf2bd8319f8b30467ee6759f3a0}{}\label{structGraphe__ordonnancement_afd7e0bf2bd8319f8b30467ee6759f3a0}
+Chaine de caracteres qui est la concatenation de toutes les noms des taches n\textquotesingle{}ayant pas de predecesseurs (contraintes). \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!Madj@{Madj}}
+\index{Madj@{Madj}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{Madj}{Madj}}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$$\ast$ Graphe\+\_\+ordonnancement\+::\+Madj \{ \}}\hypertarget{structGraphe__ordonnancement_a0088470c31eb4a734f8cbf3ef6906ad6}{}\label{structGraphe__ordonnancement_a0088470c31eb4a734f8cbf3ef6906ad6}
+La matrice d\textquotesingle{}adjacence. Initialisation des variables membres en utilisant des accolades (depuis c++11). \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!max\+\_\+rang@{max\+\_\+rang}}
+\index{max\+\_\+rang@{max\+\_\+rang}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{max\+\_\+rang}{max_rang}}]{\setlength{\rightskip}{0pt plus 5cm}int Graphe\+\_\+ordonnancement\+::max\+\_\+rang \{ -\/1 \}}\hypertarget{structGraphe__ordonnancement_a6aa4fd24dfbccf0929b893cb93e7fb6b}{}\label{structGraphe__ordonnancement_a6aa4fd24dfbccf0929b893cb93e7fb6b}
+Le rang maximum de toutes les taches. Attention\+: le rang du sommet \char`\"{}a\char`\"{} --$>$ 0 le rang des etats initiaux --$>$ 1 le rang du sommet \char`\"{}z\char`\"{} --$>$ max\+\_\+rang + 1 le rang des etas finals --$>$ pas forcement max\+\_\+rang ! (mais il y a au moins un etat final qui possede le rang valant max\+\_\+rang).
+
+Initialisation des variables membres en utilisant des accolades (depuis c++11). \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!Mval@{Mval}}
+\index{Mval@{Mval}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{Mval}{Mval}}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$$\ast$ Graphe\+\_\+ordonnancement\+::\+Mval \{ \}}\hypertarget{structGraphe__ordonnancement_afd38a144a1165aa9b03c71ef16c43e49}{}\label{structGraphe__ordonnancement_afd38a144a1165aa9b03c71ef16c43e49}
+La matrice des valeurs. Initialisation des variables membres en utilisant des accolades (depuis c++11). \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!nb\+\_\+sommets@{nb\+\_\+sommets}}
+\index{nb\+\_\+sommets@{nb\+\_\+sommets}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{nb\+\_\+sommets}{nb_sommets}}]{\setlength{\rightskip}{0pt plus 5cm}int Graphe\+\_\+ordonnancement\+::nb\+\_\+sommets \{ \}}\hypertarget{structGraphe__ordonnancement_a401dd0e1053f6d1c6673b8da7cebeca4}{}\label{structGraphe__ordonnancement_a401dd0e1053f6d1c6673b8da7cebeca4}
+Nombre de sommets du graphe, egal a nombre de taches plus 2, car il y deux sommets fictifs (un est libelle \char`\"{}a\char`\"{} et l\textquotesingle{}autre \char`\"{}z\char`\"{}, represantant respectivement l\textquotesingle{}etat au debut et l\textquotesingle{}etat a la fin). \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!taches\+\_\+map@{taches\+\_\+map}}
+\index{taches\+\_\+map@{taches\+\_\+map}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{taches\+\_\+map}{taches_map}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$char, {\bf Tache}$\ast$$>$ Graphe\+\_\+ordonnancement\+::taches\+\_\+map}\hypertarget{structGraphe__ordonnancement_ae3827ffef7da6cfa9310c1329ba388ea}{}\label{structGraphe__ordonnancement_ae3827ffef7da6cfa9310c1329ba388ea}
+Map prenant le nom du tache comme cle, et un pointeur vers cette tache comme valeur. Ce map nous permet de faire reference a une tache facilement en utilisant sont nom. \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!taches\+\_\+map\+\_\+t@{taches\+\_\+map\+\_\+t}}
+\index{taches\+\_\+map\+\_\+t@{taches\+\_\+map\+\_\+t}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{taches\+\_\+map\+\_\+t}{taches_map_t}}]{\setlength{\rightskip}{0pt plus 5cm}map$<$char, {\bf Tache}$\ast$$>$ Graphe\+\_\+ordonnancement\+::taches\+\_\+map\+\_\+t}\hypertarget{structGraphe__ordonnancement_a194953cc290bf1c5c29ae162b988f422}{}\label{structGraphe__ordonnancement_a194953cc290bf1c5c29ae162b988f422}
+Les trois variables membres suivantes seront utilisees par la fonction \hyperlink{structGraphe__ordonnancement_af2662be9ddd82e173a4c82977a032004}{top\+\_\+sort()} pour detecter des circuits. \index{Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}!vv@{vv}}
+\index{vv@{vv}!Graphe\+\_\+ordonnancement@{Graphe\+\_\+ordonnancement}}
+\subsubsection[{\texorpdfstring{vv}{vv}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$std\+::vector$<${\bf Tache}$\ast$$>$ $>$ Graphe\+\_\+ordonnancement\+::vv}\hypertarget{structGraphe__ordonnancement_a2e79a72fc442a1b9ea9734d40905d300}{}\label{structGraphe__ordonnancement_a2e79a72fc442a1b9ea9734d40905d300}
+Mini table de hashage contenant les taches de rangs differents Ne prend pas en compte les sommets \char`\"{}a\char`\"{} et \char`\"{}z\char`\"{}. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Graphe\+\_\+or.\+h\end{DoxyCompactItemize}

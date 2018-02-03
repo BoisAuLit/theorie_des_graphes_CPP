@@ -1,0 +1,573 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - parser.info - /home/bohao/Bureau/Nouveau dossier/projet_4/src/Graphe_or.h</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../../index.html">top level</a> - <a href="index.html">home/bohao/Bureau/Nouveau dossier/projet_4/src</a> - Graphe_or.h<span style="font-size: 80%;"> (source / <a href="Graphe_or.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">parser.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">180</td>
+            <td class="headerCovTableEntry">186</td>
+            <td class="headerCovTableEntryHi">96.8 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-01-04 19:20:00</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntry">17</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /**</a>
+<span class="lineNum">       2 </span>            :  * @file main.cpp
+<span class="lineNum">       3 </span>            :  * @brief Programme principale
+<span class="lineNum">       4 </span>            :  * @author Victor CARVALHO--DA-ROCHA-PITTA
+<span class="lineNum">       5 </span>            :  * @author Antoine LAY
+<span class="lineNum">       6 </span>            :  * @author Bohao LI
+<span class="lineNum">       7 </span>            :  * @author Antony LIEBIN
+<span class="lineNum">       8 </span>            :  * @date 4 Jan 2017
+<span class="lineNum">       9 </span>            :  *
+<span class="lineNum">      10 </span>            :  * Copyright 2017
+<span class="lineNum">      11 </span>            :  * Victor CARVALHO--DA-ROCHA-PITTA
+<span class="lineNum">      12 </span>            :  * (victor.carvalho--da-rocha-pitta.20160026@efrei.net)
+<span class="lineNum">      13 </span>            :  * Antoine LAY (antoine.lay.20160095@efrei.net)
+<span class="lineNum">      14 </span>            :  * Bohao LI (bohao.li.20160103@efrei.net)
+<span class="lineNum">      15 </span>            :  * Antony LIEBIN (antony.liebin.20160325@efrei.net)
+<span class="lineNum">      16 </span>            :  *
+<span class="lineNum">      17 </span>            :  * Ce programme EST UN LOGICIEL LIBRE. Vous pouvez le redistribuer.
+<span class="lineNum">      18 </span>            :  */
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span>            : /**
+<span class="lineNum">      21 </span>            :  * Au dessus Doxygen-style documentation, qui facilite
+<span class="lineNum">      22 </span>            :  * la generation des doc doxygen.
+<span class="lineNum">      23 </span>            :  */
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : #ifndef GRAPHE_OR_H_
+<span class="lineNum">      26 </span>            : #define GRAPHE_OR_H_
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : #include &lt;iostream&gt;
+<span class="lineNum">      29 </span>            : #include &lt;string&gt;
+<span class="lineNum">      30 </span>            : #include &lt;vector&gt;
+<span class="lineNum">      31 </span>            : #include &lt;map&gt;
+<span class="lineNum">      32 </span>            : #include &lt;utility&gt;
+<span class="lineNum">      33 </span>            : #include &lt;algorithm&gt;
+<span class="lineNum">      34 </span>            : #include &quot;Tache.h&quot;
+<span class="lineNum">      35 </span>            : #include &quot;Arc.h&quot;
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : using namespace std;
+<a name="38"><span class="lineNum">      38 </span>            : </a>
+<span class="lineNum">      39 </span>            : /* Graphe oriente pour un ordonnancement. */
+<span class="lineNum">      40 </span><span class="lineCov">         12 : typedef struct Graphe_ordonnancement {</span>
+<span class="lineNum">      41 </span>            :         int nb_taches { };
+<span class="lineNum">      42 </span>            :         /**
+<span class="lineNum">      43 </span>            :          * Nombre de sommets du graphe, egal a nombre de taches plus 2,
+<span class="lineNum">      44 </span>            :          * car il y deux sommets fictifs (un est libelle &quot;a&quot; et l'autre
+<span class="lineNum">      45 </span>            :          * &quot;z&quot;, represantant respectivement l'etat au debut et l'etat a la fin).
+<span class="lineNum">      46 </span>            :          */
+<span class="lineNum">      47 </span>            :         int nb_sommets { };
+<span class="lineNum">      48 </span>            :         /**
+<span class="lineNum">      49 </span>            :          * Map prenant le nom du tache comme cle, et un pointeur vers cette
+<span class="lineNum">      50 </span>            :          * tache comme valeur. Ce map nous permet de faire reference a une
+<span class="lineNum">      51 </span>            :          * tache facilement en utilisant sont nom.
+<span class="lineNum">      52 </span>            :          */
+<span class="lineNum">      53 </span>            :         map&lt;char, Tache*&gt; taches_map;
+<span class="lineNum">      54 </span>            :         /* Vecteur contenant toutes les instances des taches. */
+<span class="lineNum">      55 </span>            :         vector&lt;Tache&gt; taches;
+<span class="lineNum">      56 </span>            :         /**
+<span class="lineNum">      57 </span>            :          * Chaine de caracteres qui est la concatenation de toutes les noms
+<span class="lineNum">      58 </span>            :          * des taches n'ayant pas de predecesseurs (contraintes).
+<span class="lineNum">      59 </span>            :          */
+<span class="lineNum">      60 </span>            :         string etats_initiaux;
+<span class="lineNum">      61 </span>            :         /**
+<span class="lineNum">      62 </span>            :          * Chaine de caracteres qui est la concatenation de toutes les noms
+<span class="lineNum">      63 </span>            :          * des taches n'ayant pas de successeurs.
+<span class="lineNum">      64 </span>            :          */
+<span class="lineNum">      65 </span>            :         string etats_finals;
+<span class="lineNum">      66 </span>            :         /**
+<span class="lineNum">      67 </span>            :          * Chaine de caracteres qui est la concatenation de toutes les noms
+<span class="lineNum">      68 </span>            :          * des taches.
+<span class="lineNum">      69 </span>            :          */
+<span class="lineNum">      70 </span>            :         string etats;
+<span class="lineNum">      71 </span>            :         /**
+<span class="lineNum">      72 </span>            :          * Chaine de caracteres qui est la concatenation de toutes les noms
+<span class="lineNum">      73 </span>            :          * des predecesseurs (contraintes) des taches.
+<span class="lineNum">      74 </span>            :          */
+<span class="lineNum">      75 </span>            :         string contraintes;
+<span class="lineNum">      76 </span>            :         /**
+<span class="lineNum">      77 </span>            :          * La matrice d'adjacence. Initialisation des variables membres en
+<span class="lineNum">      78 </span>            :          * utilisant des accolades (depuis c++11).
+<span class="lineNum">      79 </span>            :          */
+<span class="lineNum">      80 </span>            :         int **Madj { };
+<span class="lineNum">      81 </span>            :         /**
+<span class="lineNum">      82 </span>            :          * La matrice des valeurs. Initialisation des variables membres en
+<span class="lineNum">      83 </span>            :          * utilisant des accolades (depuis c++11).
+<span class="lineNum">      84 </span>            :          */
+<span class="lineNum">      85 </span>            :         int **Mval { };
+<span class="lineNum">      86 </span>            :         /**
+<span class="lineNum">      87 </span>            :          * Le rang maximum de toutes les taches.
+<span class="lineNum">      88 </span>            :          * Attention:
+<span class="lineNum">      89 </span>            :          * le rang du sommet &quot;a&quot; --&gt; 0
+<span class="lineNum">      90 </span>            :          * le rang des etats initiaux --&gt; 1
+<span class="lineNum">      91 </span>            :          * le rang du sommet &quot;z&quot; --&gt; max_rang + 1
+<span class="lineNum">      92 </span>            :          * le rang des etas finals --&gt; pas forcement max_rang !
+<span class="lineNum">      93 </span>            :          * (mais il y a au moins un etat final qui possede le rang
+<span class="lineNum">      94 </span>            :          * valant max_rang).
+<span class="lineNum">      95 </span>            :          *
+<span class="lineNum">      96 </span>            :          * Initialisation des variables membres en utilisant
+<span class="lineNum">      97 </span>            :          * des accolades (depuis c++11).
+<span class="lineNum">      98 </span>            :          */
+<span class="lineNum">      99 </span>            :         int max_rang { -1 };
+<span class="lineNum">     100 </span>            :         /**
+<span class="lineNum">     101 </span>            :          *  Mini table de hashage contenant les taches de rangs differents
+<span class="lineNum">     102 </span>            :          *  Ne prend pas en compte les sommets &quot;a&quot; et &quot;z&quot;.
+<span class="lineNum">     103 </span>            :          */
+<span class="lineNum">     104 </span>            :         vector&lt;std::vector&lt;Tache*&gt; &gt; vv;
+<span class="lineNum">     105 </span>            : 
+<span class="lineNum">     106 </span>            :         /**
+<span class="lineNum">     107 </span>            :          *  Les trois variables membres suivantes seront utilisees par la fonction
+<span class="lineNum">     108 </span>            :          *  top_sort() pour detecter des circuits.
+<span class="lineNum">     109 </span>            :          */
+<span class="lineNum">     110 </span>            : 
+<span class="lineNum">     111 </span>            :         /* Map temporaire pour detercter des circuits dans le graphe courant. */
+<span class="lineNum">     112 </span>            :         map&lt;char, Tache*&gt; taches_map_t;
+<span class="lineNum">     113 </span>            :         /* Vecteur temporaire pour detecter des circuits dans le graphe courant. */
+<span class="lineNum">     114 </span>            :         vector&lt;Tache&gt; taches_t;
+<span class="lineNum">     115 </span>            :         /* Map contenant tous les Arcs du graphe courant. */
+<span class="lineNum">     116 </span>            :         map&lt;pair&lt;char, char&gt;, Arc&gt; map_arc;
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            :         /* Afficher toutes les taches de l'ordonnancement. */
+<span class="lineNum">     119 </span>            :         void afficher_taches() const;
+<span class="lineNum">     120 </span>            : 
+<span class="lineNum">     121 </span>            :         /* Initaliser la variable membre map_arc. */
+<span class="lineNum">     122 </span>            :         void map_arc_init();
+<span class="lineNum">     123 </span>            :         /**
+<span class="lineNum">     124 </span>            :          * Dans theorie des graphes, un tri topolotique d'un graphe oriente
+<span class="lineNum">     125 </span>            :          * sans circuit est un ordre lineaire dans lequel chaque sommet
+<span class="lineNum">     126 </span>            :          * se trouve avant tous ses successeurs (si le somment possede
+<span class="lineNum">     127 </span>            :          * des successeurs).
+<span class="lineNum">     128 </span>            :          *
+<span class="lineNum">     129 </span>            :          * Chaque graphe oriente sans circuit possede un ou plusieurs tries
+<span class="lineNum">     130 </span>            :          * topologiques.
+<span class="lineNum">     131 </span>            :          *
+<span class="lineNum">     132 </span>            :          * Si on n'arrive pas a faire un tri topologique, alors qu'il
+<span class="lineNum">     133 </span>            :          * y a forcement au moins un circuit dans le graphe. C'est comme cela qu'on verifie
+<span class="lineNum">     134 </span>            :          * s'il existe des circuits dans un graphe oriente.
+<span class="lineNum">     135 </span>            :          */
+<span class="lineNum">     136 </span>            :         bool top_sort();
+<span class="lineNum">     137 </span>            : 
+<span class="lineNum">     138 </span>            :         void initialiser_matrice();
+<span class="lineNum">     139 </span>            :         void remplir_matrice();
+<span class="lineNum">     140 </span>            :         void afficher_matrice(int) const;
+<span class="lineNum">     141 </span>            :         void liberer_matrice();
+<span class="lineNum">     142 </span>            : 
+<span class="lineNum">     143 </span>            :         /* Calculer le rang d'une tache donnee. */
+<span class="lineNum">     144 </span>            :         int rang(Tache *t);
+<span class="lineNum">     145 </span>            :         /* Configurer les rangs pour toutes les taches. */
+<span class="lineNum">     146 </span>            :         void set_rang();
+<span class="lineNum">     147 </span>            :         /**
+<span class="lineNum">     148 </span>            :          * Calculer la valeur maximum des rangs des taches,
+<span class="lineNum">     149 </span>            :          * et allouer cette valeur a la variable membre max_rang.
+<span class="lineNum">     150 </span>            :          */
+<span class="lineNum">     151 </span>            :         void set_max_rang();
+<span class="lineNum">     152 </span>            :         /**
+<span class="lineNum">     153 </span>            :          * Mettre des taches dans une table de hashage selon les rangs
+<span class="lineNum">     154 </span>            :          * des taches, configurer la variable membre vv.
+<span class="lineNum">     155 </span>            :          */
+<span class="lineNum">     156 </span>            :         void set_hash_table();
+<span class="lineNum">     157 </span>            : 
+<span class="lineNum">     158 </span>            :         /* Calculer la date au plus tot pour toutes les taches. */
+<span class="lineNum">     159 </span>            :         void calculer_date_tot();
+<span class="lineNum">     160 </span>            :         /* Calculer la date au plus tard pour toutes les taches. */
+<span class="lineNum">     161 </span>            :         void calculer_date_tard();
+<span class="lineNum">     162 </span>            : 
+<span class="lineNum">     163 </span>            :         /* Afficher le diagramme de gantt pour l'ordonnancement. */
+<span class="lineNum">     164 </span>            :         void afficher_gantt(int);
+<span class="lineNum">     165 </span>            : } Graphe_or;
+<span class="lineNum">     166 </span>            : 
+<span class="lineNum">     167 </span>            : /**
+<span class="lineNum">     168 </span>            :  * @brief Configurer les variables membres map_arc, taches_t et
+<a name="169"><span class="lineNum">     169 </span>            :  *        taches_map_t.</a>
+<span class="lineNum">     170 </span>            :  */
+<span class="lineNum">     171 </span><span class="lineCov">          6 : void Graphe_or::map_arc_init() {</span>
+<span class="lineNum">     172 </span>            :         /* Configurer map_arc. */
+<span class="lineNum">     173 </span><span class="lineCov">         63 :         for (auto &amp; p : taches)</span>
+<span class="lineNum">     174 </span><span class="lineCov">         57 :                 if (!p.succ.empty())</span>
+<span class="lineNum">     175 </span><span class="lineCov">        116 :                         for (auto &amp; q : p.succ)</span>
+<span class="lineNum">     176 </span><span class="lineCov">         69 :                                 map_arc[ { p.nom, q }] = Arc { p.nom, p.duree, q };</span>
+<span class="lineNum">     177 </span>            : 
+<span class="lineNum">     178 </span>            :         /* Configurer taches_t. */
+<span class="lineNum">     179 </span><span class="lineCov">         63 :         for (auto &amp; p : taches)</span>
+<span class="lineNum">     180 </span><span class="lineCov">         57 :                 taches_t.push_back(p);</span>
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span>            :         /* Configurer taches_map_t. */
+<span class="lineNum">     183 </span><span class="lineCov">         63 :         for (auto &amp; p : taches_t)</span>
+<span class="lineNum">     184 </span><span class="lineCov">         57 :                 taches_map_t[p.nom] = &amp;p;</span>
+<span class="lineNum">     185 </span><span class="lineCov">          6 : }</span>
+<span class="lineNum">     186 </span>            : 
+<span class="lineNum">     187 </span>            : /**
+<span class="lineNum">     188 </span>            :  * @brief faire un tri topologique de toutes les taches.
+<a name="189"><span class="lineNum">     189 </span>            :  * @return true s'il y a des circuits, sinon retourne false.</a>
+<span class="lineNum">     190 </span>            :  */
+<span class="lineNum">     191 </span><span class="lineCov">          6 : bool Graphe_or::top_sort() {</span>
+<span class="lineNum">     192 </span>            :         /* Vecteur qui contiendra les taches dans l'ordre topologique. */
+<span class="lineNum">     193 </span><span class="lineCov">         12 :         vector&lt;Tache*&gt; L;</span>
+<span class="lineNum">     194 </span>            :         /**
+<span class="lineNum">     195 </span>            :          * Vecteur contenant tous les etats initiaux (les taches n'ayant
+<span class="lineNum">     196 </span>            :          * pas de predecesseurs).
+<span class="lineNum">     197 </span>            :          */
+<span class="lineNum">     198 </span><span class="lineCov">         12 :         vector&lt;Tache*&gt; Q;</span>
+<span class="lineNum">     199 </span><span class="lineCov">         20 :         for (auto &amp; p : etats_initiaux)</span>
+<span class="lineNum">     200 </span><span class="lineCov">         14 :                 Q.push_back(taches_map_t[p]);</span>
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span><span class="lineCov">         94 :         while (!Q.empty()) {</span>
+<span class="lineNum">     203 </span><span class="lineCov">         44 :                 Tache *n = Q.back();</span>
+<span class="lineNum">     204 </span><span class="lineCov">         44 :                 Q.pop_back();</span>
+<span class="lineNum">     205 </span><span class="lineCov">         44 :                 L.push_back(n);</span>
+<span class="lineNum">     206 </span><span class="lineCov">         97 :                 for (auto &amp; m : n-&gt;succ) {</span>
+<span class="lineNum">     207 </span><span class="lineCov">         53 :                         auto it = map_arc.find( { n-&gt;nom, m });</span>
+<span class="lineNum">     208 </span><span class="lineCov">         53 :                         map_arc.erase(it);</span>
+<span class="lineNum">     209 </span>            : 
+<span class="lineNum">     210 </span><span class="lineCov">         53 :                         string &amp;str = taches_map_t[m]-&gt;pred;</span>
+<span class="lineNum">     211 </span><span class="lineCov">         53 :                         str.erase(remove(str.begin(), str.end(), n-&gt;nom), str.end());</span>
+<span class="lineNum">     212 </span>            : 
+<span class="lineNum">     213 </span><span class="lineCov">         53 :                         string &amp;str2 = n-&gt;succ;</span>
+<span class="lineNum">     214 </span><span class="lineCov">         53 :                         str2.erase(remove(str.begin(), str.end(), m), str.end());</span>
+<span class="lineNum">     215 </span>            : 
+<span class="lineNum">     216 </span><span class="lineCov">         53 :                         if (taches_map_t[m]-&gt;pred.empty())</span>
+<span class="lineNum">     217 </span><span class="lineCov">         30 :                                 Q.push_back(taches_map_t[m]);</span>
+<span class="lineNum">     218 </span>            :                 }
+<span class="lineNum">     219 </span>            :         }
+<span class="lineNum">     220 </span><span class="lineCov">          6 :         if (!map_arc.empty()) {</span>
+<span class="lineNum">     221 </span><span class="lineCov">          2 :                 cout &lt;&lt; &quot;Des circuits existent !&quot; &lt;&lt; endl;</span>
+<span class="lineNum">     222 </span><span class="lineCov">          2 :                 return true;</span>
+<span class="lineNum">     223 </span>            :         } else {
+<span class="lineNum">     224 </span><span class="lineCov">          4 :                 cout &lt;&lt; &quot;\nOrdre apres tri topologique : &quot;;</span>
+<span class="lineNum">     225 </span><span class="lineCov">         41 :                 for (auto &amp; p : L)</span>
+<span class="lineNum">     226 </span><span class="lineCov">         37 :                         cout &lt;&lt; p-&gt;nom &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">     227 </span><span class="lineCov">          4 :                 cout &lt;&lt; endl;</span>
+<span class="lineNum">     228 </span>            :         }
+<span class="lineNum">     229 </span><span class="lineCov">          4 :         return false;</span>
+<span class="lineNum">     230 </span>            : 
+<span class="lineNum">     231 </span>            : }
+<span class="lineNum">     232 </span>            : 
+<span class="lineNum">     233 </span>            : /**
+<span class="lineNum">     234 </span>            :  * @brief Initialiser la matrice d'adjacence et la matrice des valeurs.
+<span class="lineNum">     235 </span>            :  *        Allouer la memoire dynamiquement pour ces deux matrices.
+<a name="236"><span class="lineNum">     236 </span>            :  *        Initialiser toutes les valeurs dans la matrice a -1.</a>
+<span class="lineNum">     237 </span>            :  */
+<span class="lineNum">     238 </span><span class="lineCov">          4 : void Graphe_or::initialiser_matrice() {</span>
+<span class="lineNum">     239 </span><span class="lineCov">          4 :         Madj = new int*[nb_sommets];</span>
+<span class="lineNum">     240 </span><span class="lineCov">          4 :         Mval = new int*[nb_sommets];</span>
+<span class="lineNum">     241 </span><span class="lineCov">         49 :         for (int i { 0 }; i &lt; nb_sommets; i++) {</span>
+<span class="lineNum">     242 </span><span class="lineCov">         45 :                 Madj[i] = new int[nb_sommets];</span>
+<span class="lineNum">     243 </span><span class="lineCov">         45 :                 Mval[i] = new int[nb_sommets];</span>
+<span class="lineNum">     244 </span>            :         }
+<span class="lineNum">     245 </span>            : 
+<span class="lineNum">     246 </span><span class="lineCov">         49 :         for (int i { 0 }; i &lt; nb_sommets; i++)</span>
+<span class="lineNum">     247 </span><span class="lineCov">        558 :                 for (int j { 0 }; j &lt; nb_sommets; j++) {</span>
+<span class="lineNum">     248 </span><span class="lineCov">        513 :                         Madj[i][j] = 0;</span>
+<span class="lineNum">     249 </span><span class="lineCov">        513 :                         Mval[i][j] = -1;</span>
+<span class="lineNum">     250 </span>            :                 }
+<span class="lineNum">     251 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     252 </span>            : 
+<span class="lineNum">     253 </span>            : /**
+<a name="254"><span class="lineNum">     254 </span>            :  * @brief Configurer la matrice d'adjacence et la matrice des valeurs.</a>
+<span class="lineNum">     255 </span>            :  */
+<span class="lineNum">     256 </span><span class="lineCov">          4 : void Graphe_or::remplir_matrice() {</span>
+<span class="lineNum">     257 </span>            :         /**
+<span class="lineNum">     258 </span>            :          * Remplir la matrice (Etape 1).
+<span class="lineNum">     259 </span>            :          * En utilisant tous les contraintes de toutes les taches.
+<span class="lineNum">     260 </span>            :          */
+<span class="lineNum">     261 </span><span class="lineCov">         41 :         for (int i { 0 }; i &lt; nb_taches; i++)</span>
+<span class="lineNum">     262 </span><span class="lineCov">         37 :                 if (!taches[i].succ.empty())</span>
+<span class="lineNum">     263 </span><span class="lineCov">         77 :                         for (auto &amp; p : taches[i].succ) {</span>
+<span class="lineNum">     264 </span><span class="lineCov">         46 :                                 Madj[taches[i].nom - 'A'][p - 'A'] = 1;</span>
+<span class="lineNum">     265 </span><span class="lineCov">         46 :                                 Mval[taches[i].nom - 'A'][p - 'A'] = taches[i].duree;</span>
+<span class="lineNum">     266 </span>            :                         }
+<span class="lineNum">     267 </span>            :         /**
+<span class="lineNum">     268 </span>            :          * Remplir la matrice (Etape 2).
+<span class="lineNum">     269 </span>            :          * Mettre les relatoins entre &quot;a&quot; et les etats initiaux dans le tableau.
+<span class="lineNum">     270 </span>            :          */
+<span class="lineNum">     271 </span><span class="lineCov">         15 :         for (auto &amp; p : etats_initiaux) {</span>
+<span class="lineNum">     272 </span><span class="lineCov">         11 :                 Madj[nb_sommets - 2][p - 'A'] = 1;</span>
+<span class="lineNum">     273 </span><span class="lineCov">         11 :                 Mval[nb_sommets - 2][p - 'A'] = 0;</span>
+<span class="lineNum">     274 </span>            :         }
+<span class="lineNum">     275 </span>            :         /**
+<span class="lineNum">     276 </span>            :          * Remplir la matrice (Etape 3).
+<span class="lineNum">     277 </span>            :          * Mettre les relations entre &quot;z&quot; et les etats finals dans le tableau.
+<span class="lineNum">     278 </span>            :          */
+<span class="lineNum">     279 </span><span class="lineCov">         10 :         for (auto &amp; p : etats_finals) {</span>
+<span class="lineNum">     280 </span><span class="lineCov">          6 :                 Madj[p - 'A'][nb_sommets - 1] = 1;</span>
+<span class="lineNum">     281 </span><span class="lineCov">          6 :                 Mval[p - 'A'][nb_sommets - 1] = taches_map[p]-&gt;duree;</span>
+<span class="lineNum">     282 </span>            :         }
+<span class="lineNum">     283 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     284 </span>            : 
+<span class="lineNum">     285 </span>            : /**
+<span class="lineNum">     286 </span>            :  * @brief Afficher la matrice d'adjacence ou la matrice des valeurs.
+<span class="lineNum">     287 </span>            :  * @param choix si egal a 0, alors afficher la matrice d'adjacence.
+<a name="288"><span class="lineNum">     288 </span>            :  *              si egal a 1, alors afficher la matrice des valeurs.</a>
+<span class="lineNum">     289 </span>            :  */
+<span class="lineNum">     290 </span><span class="lineCov">          8 : void Graphe_or::afficher_matrice(int choix) const {</span>
+<span class="lineNum">     291 </span>            : 
+<span class="lineNum">     292 </span><span class="lineCov">          8 :         if (choix == 0)</span>
+<span class="lineNum">     293 </span><span class="lineCov">          4 :                 cout &lt;&lt; &quot;Afficher la matrice d'adjacence :\n\n&quot; &lt;&lt; endl;</span>
+<span class="lineNum">     294 </span><span class="lineCov">          4 :         else if (choix == 1)</span>
+<span class="lineNum">     295 </span><span class="lineCov">          4 :                 cout &lt;&lt; &quot;Afficher la matrice des valeurs :\n\n&quot; &lt;&lt; endl;</span>
+<span class="lineNum">     296 </span>            :         else {
+<span class="lineNum">     297 </span><span class="lineNoCov">          0 :                 cout &lt;&lt; &quot;Choix incorrecte !&quot; &lt;&lt; endl;</span>
+<span class="lineNum">     298 </span><span class="lineNoCov">          0 :                 return;</span>
+<span class="lineNum">     299 </span>            :         }
+<span class="lineNum">     300 </span>            : 
+<span class="lineNum">     301 </span><span class="lineCov">         82 :         for (auto &amp; p : taches)</span>
+<span class="lineNum">     302 </span><span class="lineCov">         74 :                 cout &lt;&lt; p.nom &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">     303 </span><span class="lineCov">          8 :         cout &lt;&lt; &quot;a Z\n&quot;;</span>
+<span class="lineNum">     304 </span>            : 
+<span class="lineNum">     305 </span><span class="lineCov">         98 :         for (int i { 0 }; i &lt; nb_sommets; i++) {</span>
+<span class="lineNum">     306 </span><span class="lineCov">         90 :                 if (i == nb_sommets - 2)</span>
+<span class="lineNum">     307 </span><span class="lineCov">          8 :                         cout &lt;&lt; &quot;a &quot;;</span>
+<span class="lineNum">     308 </span><span class="lineCov">         82 :                 else if (i == nb_sommets - 1)</span>
+<span class="lineNum">     309 </span><span class="lineCov">          8 :                         cout &lt;&lt; &quot;z &quot;;</span>
+<span class="lineNum">     310 </span>            :                 else
+<span class="lineNum">     311 </span><span class="lineCov">         74 :                         cout &lt;&lt; taches[i].nom &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">     312 </span>            : 
+<span class="lineNum">     313 </span><span class="lineCov">         90 :                 if (choix == 0) {</span>
+<span class="lineNum">     314 </span><span class="lineCov">        558 :                         for (int j { 0 }; j &lt; nb_sommets; j++)</span>
+<span class="lineNum">     315 </span><span class="lineCov">        513 :                                 if (Madj[i][j] == 0)</span>
+<span class="lineNum">     316 </span><span class="lineCov">        450 :                                         cout &lt;&lt; &quot;  &quot;;</span>
+<span class="lineNum">     317 </span>            :                                 else
+<span class="lineNum">     318 </span><span class="lineCov">         63 :                                         cout &lt;&lt; Madj[i][j] &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">     319 </span><span class="lineCov">         45 :                 } else if (choix == 1) {</span>
+<span class="lineNum">     320 </span><span class="lineCov">        558 :                         for (int j { 0 }; j &lt; nb_sommets; j++)</span>
+<span class="lineNum">     321 </span><span class="lineCov">        513 :                                 if (Mval[i][j] == -1)</span>
+<span class="lineNum">     322 </span><span class="lineCov">        450 :                                         cout &lt;&lt; &quot;  &quot;;</span>
+<span class="lineNum">     323 </span>            :                                 else
+<span class="lineNum">     324 </span><span class="lineCov">         63 :                                         cout &lt;&lt; Mval[i][j] &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">     325 </span>            :                 } else {
+<span class="lineNum">     326 </span><span class="lineNoCov">          0 :                         cout &lt;&lt; &quot;Choix incorrecte !&quot; &lt;&lt; endl;</span>
+<span class="lineNum">     327 </span><span class="lineNoCov">          0 :                         return;</span>
+<span class="lineNum">     328 </span>            :                 }
+<span class="lineNum">     329 </span><span class="lineCov">         90 :                 cout &lt;&lt; endl;</span>
+<span class="lineNum">     330 </span>            :         }
+<span class="lineNum">     331 </span>            : }
+<span class="lineNum">     332 </span>            : 
+<span class="lineNum">     333 </span>            : /**
+<a name="334"><span class="lineNum">     334 </span>            :  * @brief Liberer les memoires anciennement allouees a la matrice d'adjacence.</a>
+<span class="lineNum">     335 </span>            :  */
+<span class="lineNum">     336 </span><span class="lineCov">          4 : void Graphe_or::liberer_matrice() {</span>
+<span class="lineNum">     337 </span><span class="lineCov">         49 :         for (int i { nb_sommets }; i--;) {</span>
+<span class="lineNum">     338 </span><span class="lineCov">         45 :                 delete[] Madj[i];</span>
+<span class="lineNum">     339 </span><span class="lineCov">         45 :                 delete[] Mval[i];</span>
+<span class="lineNum">     340 </span>            :         }
+<span class="lineNum">     341 </span><span class="lineCov">          4 :         delete[] Madj;</span>
+<span class="lineNum">     342 </span><span class="lineCov">          4 :         delete[] Mval;</span>
+<span class="lineNum">     343 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     344 </span>            : 
+<span class="lineNum">     345 </span>            : /**
+<a name="346"><span class="lineNum">     346 </span>            :  * @brief Afficher toutes les taches de l'ordonnancement.</a>
+<span class="lineNum">     347 </span>            :  */
+<span class="lineNum">     348 </span><span class="lineCov">          4 : void Graphe_or::afficher_taches() const {</span>
+<span class="lineNum">     349 </span><span class="lineCov">          4 :         cout &lt;&lt; &quot;Nom\t&quot; &lt;&lt; &quot;Duree\t&quot; &lt;&lt; &quot;Pred\t&quot; &lt;&lt; &quot;Succ\t&quot; &lt;&lt; &quot;Rang\t&quot;</span>
+<span class="lineNum">     350 </span><span class="lineCov">          4 :                         &lt;&lt; &quot;Date tot\t&quot; &lt;&lt; &quot;Date tard&quot; &lt;&lt; endl;</span>
+<span class="lineNum">     351 </span><span class="lineCov">         41 :         for (auto &amp; p : taches)</span>
+<span class="lineNum">     352 </span><span class="lineCov">         37 :                 cout &lt;&lt; p &lt;&lt; endl;</span>
+<span class="lineNum">     353 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     354 </span>            : 
+<span class="lineNum">     355 </span>            : /**
+<a name="356"><span class="lineNum">     356 </span>            :  * @brief trouver la valeur maximum d'un vector&lt;int&gt;.</a>
+<span class="lineNum">     357 </span>            :  */
+<span class="lineNum">     358 </span><span class="lineCov">         80 : int max(vector&lt;int&gt; v) {</span>
+<span class="lineNum">     359 </span><span class="lineCov">         80 :         return *max_element(begin(v), end(v));</span>
+<span class="lineNum">     360 </span>            : }
+<span class="lineNum">     361 </span>            : 
+<span class="lineNum">     362 </span>            : /**
+<span class="lineNum">     363 </span>            :  * @brief Calculer le rang pour une tache (fonction recursive).
+<span class="lineNum">     364 </span>            :  * @param t pointeur vers une tache quelconque.
+<a name="365"><span class="lineNum">     365 </span>            :  * @return rang de la tache courante.</a>
+<span class="lineNum">     366 </span>            :  */
+<span class="lineNum">     367 </span><span class="lineCov">        158 : int Graphe_or::rang(Tache *t) {</span>
+<span class="lineNum">     368 </span>            :         /* Le rang des etats initiaux est 1 */
+<span class="lineNum">     369 </span><span class="lineCov">        158 :         if (t-&gt;pred.empty())</span>
+<span class="lineNum">     370 </span><span class="lineCov">         78 :                 return 1;</span>
+<span class="lineNum">     371 </span><span class="lineCov">        160 :         vector&lt;int&gt; tmp;</span>
+<span class="lineNum">     372 </span><span class="lineCov">        201 :         for (auto &amp; p : t-&gt;pred)</span>
+<span class="lineNum">     373 </span><span class="lineCov">        121 :                 tmp.push_back(rang(taches_map[p]));</span>
+<span class="lineNum">     374 </span><span class="lineCov">         80 :         return max(tmp) + 1;</span>
+<span class="lineNum">     375 </span>            : }
+<span class="lineNum">     376 </span>            : 
+<span class="lineNum">     377 </span>            : /**
+<a name="378"><span class="lineNum">     378 </span>            :  * @brief Calculer les rangs pour toutes les taches.</a>
+<span class="lineNum">     379 </span>            :  */
+<span class="lineNum">     380 </span><span class="lineCov">          4 : void Graphe_or::set_rang() {</span>
+<span class="lineNum">     381 </span><span class="lineCov">         41 :         for (auto &amp; p : taches)</span>
+<span class="lineNum">     382 </span><span class="lineCov">         37 :                 p.rang = rang(&amp;p);</span>
+<span class="lineNum">     383 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     384 </span>            : 
+<span class="lineNum">     385 </span>            : /**
+<span class="lineNum">     386 </span>            :  * @brief Calculer la valeur maximum des rangs de toutes les taches,
+<a name="387"><span class="lineNum">     387 </span>            :  *        et alloue cette valeur a la variable membre max_rang.</a>
+<span class="lineNum">     388 </span>            :  */
+<span class="lineNum">     389 </span><span class="lineCov">          4 : void Graphe_or::set_max_rang() {</span>
+<span class="lineNum">     390 </span><span class="lineCov">         41 :         for (auto &amp; p : taches)</span>
+<span class="lineNum">     391 </span><span class="lineCov">         37 :                 max_rang = (p.rang &gt; max_rang) ? p.rang : max_rang;</span>
+<span class="lineNum">     392 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     393 </span>            : 
+<span class="lineNum">     394 </span>            : /**
+<span class="lineNum">     395 </span>            :  * @brief Configurer la mini table de hashage vv contenant les pointeurs
+<a name="396"><span class="lineNum">     396 </span>            :  *        vers des taches de rangs differents.</a>
+<span class="lineNum">     397 </span>            :  */
+<span class="lineNum">     398 </span><span class="lineCov">          4 : void Graphe_or::set_hash_table() {</span>
+<span class="lineNum">     399 </span><span class="lineCov">          4 :         vv.resize(max_rang);</span>
+<span class="lineNum">     400 </span><span class="lineCov">         41 :         for (auto &amp; p : taches)</span>
+<span class="lineNum">     401 </span><span class="lineCov">         37 :                 vv[p.rang - 1].push_back(&amp;p);</span>
+<span class="lineNum">     402 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     403 </span>            : 
+<span class="lineNum">     404 </span>            : /**
+<a name="405"><span class="lineNum">     405 </span>            :  * @brief Calculer la date au plus tot pour toutes les taches.</a>
+<span class="lineNum">     406 </span>            :  */
+<span class="lineNum">     407 </span><span class="lineCov">          4 : void Graphe_or::calculer_date_tot() {</span>
+<span class="lineNum">     408 </span>            :         /* Allouer les date au plus tot aux etats initiaux. */
+<span class="lineNum">     409 </span><span class="lineCov">         15 :         for (auto &amp; p : etats_initiaux)</span>
+<span class="lineNum">     410 </span><span class="lineCov">         11 :                 taches_map[p]-&gt;date_tot = 0;</span>
+<span class="lineNum">     411 </span>            : 
+<span class="lineNum">     412 </span><span class="lineCov">         19 :         for (int i { 1 }; i &lt; (int) vv.size(); i++)</span>
+<span class="lineNum">     413 </span><span class="lineCov">         41 :                 for (auto &amp; p : vv[i]) {</span>
+<span class="lineNum">     414 </span><span class="lineCov">         26 :                         int max { -1 };</span>
+<span class="lineNum">     415 </span><span class="lineCov">         72 :                         for (auto &amp; q : p-&gt;pred) {</span>
+<span class="lineNum">     416 </span><span class="lineCov">         46 :                                 Tache *tmp = taches_map[q];</span>
+<span class="lineNum">     417 </span><span class="lineCov">         46 :                                 if (tmp-&gt;date_tot + tmp-&gt;duree &gt; max)</span>
+<span class="lineNum">     418 </span><span class="lineCov">         35 :                                         max = tmp-&gt;date_tot + tmp-&gt;duree;</span>
+<span class="lineNum">     419 </span>            :                         }
+<span class="lineNum">     420 </span><span class="lineCov">         26 :                         p-&gt;date_tot = max;</span>
+<span class="lineNum">     421 </span>            :                 }
+<span class="lineNum">     422 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     423 </span>            : 
+<span class="lineNum">     424 </span>            : /**
+<a name="425"><span class="lineNum">     425 </span>            :  * @brief Calculer la date au plus tard pour toutes les taches.</a>
+<span class="lineNum">     426 </span>            :  */
+<span class="lineNum">     427 </span><span class="lineCov">          4 : void Graphe_or::calculer_date_tard() {</span>
+<span class="lineNum">     428 </span>            :         /* Calculer la duree minimum du projet. */
+<span class="lineNum">     429 </span><span class="lineCov">          4 :         int max { -1 };</span>
+<span class="lineNum">     430 </span><span class="lineCov">         10 :         for (auto &amp; p : etats_finals) {</span>
+<span class="lineNum">     431 </span><span class="lineCov">          6 :                 Tache *tmp = taches_map[p];</span>
+<span class="lineNum">     432 </span><span class="lineCov">          6 :                 if (tmp-&gt;date_tot + tmp-&gt;duree &gt; max)</span>
+<span class="lineNum">     433 </span><span class="lineCov">          5 :                         max = tmp-&gt;date_tot + tmp-&gt;duree;</span>
+<span class="lineNum">     434 </span>            :         }
+<span class="lineNum">     435 </span>            : 
+<span class="lineNum">     436 </span><span class="lineCov">         10 :         for (auto &amp; p : etats_finals) {</span>
+<span class="lineNum">     437 </span><span class="lineCov">          6 :                 Tache *tmp = taches_map[p];</span>
+<span class="lineNum">     438 </span><span class="lineCov">          6 :                 tmp-&gt;date_tard = max - tmp-&gt;duree;</span>
+<span class="lineNum">     439 </span>            :         }
+<span class="lineNum">     440 </span>            : 
+<span class="lineNum">     441 </span><span class="lineCov">         19 :         for (int i { max_rang - 1 }; i--;)</span>
+<span class="lineNum">     442 </span><span class="lineCov">         48 :                 for (auto &amp; p : vv[i]) {</span>
+<span class="lineNum">     443 </span><span class="lineCov">         33 :                         if (p-&gt;succ.empty())</span>
+<span class="lineNum">     444 </span><span class="lineCov">          2 :                                 continue;</span>
+<span class="lineNum">     445 </span><span class="lineCov">         31 :                         int min { 9999999 };</span>
+<span class="lineNum">     446 </span><span class="lineCov">         77 :                         for (auto &amp; q : p-&gt;succ) {</span>
+<span class="lineNum">     447 </span><span class="lineCov">         46 :                                 Tache *tmp = taches_map[q];</span>
+<span class="lineNum">     448 </span><span class="lineCov">         46 :                                 if (tmp-&gt;date_tard &lt; min)</span>
+<span class="lineNum">     449 </span><span class="lineCov">         40 :                                         min = tmp-&gt;date_tard;</span>
+<span class="lineNum">     450 </span>            :                         }
+<span class="lineNum">     451 </span><span class="lineCov">         31 :                         p-&gt;date_tard = min - p-&gt;duree;</span>
+<span class="lineNum">     452 </span>            :                 }
+<span class="lineNum">     453 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     454 </span>            : 
+<span class="lineNum">     455 </span>            : /**
+<span class="lineNum">     456 </span>            :  * @brief Afficher le diagramme de gantt.
+<span class="lineNum">     457 </span>            :  *        Si choix == 0, alors afficher selon la date au plus tot.
+<span class="lineNum">     458 </span>            :  *        Si choix == 1, alors afficher selon la date au plus tard.
+<span class="lineNum">     459 </span>            :  *        Sinon, afficher une erreur.
+<a name="460"><span class="lineNum">     460 </span>            :  * @param choix entier a passer en parametre pour cette fonction.</a>
+<span class="lineNum">     461 </span>            :  */
+<span class="lineNum">     462 </span><span class="lineCov">          8 : void Graphe_or::afficher_gantt(int choix) {</span>
+<span class="lineNum">     463 </span><span class="lineCov">          8 :         int max { -1 };</span>
+<span class="lineNum">     464 </span><span class="lineCov">         20 :         for (auto &amp; p : etats_finals) {</span>
+<span class="lineNum">     465 </span><span class="lineCov">         12 :                 Tache *tmp = taches_map[p];</span>
+<span class="lineNum">     466 </span><span class="lineCov">         12 :                 if (tmp-&gt;date_tot + tmp-&gt;duree &gt; max)</span>
+<span class="lineNum">     467 </span><span class="lineCov">         10 :                         max = tmp-&gt;date_tot + tmp-&gt;duree;</span>
+<span class="lineNum">     468 </span>            :         }
+<span class="lineNum">     469 </span><span class="lineCov">          8 :         cout &lt;&lt; &quot;  &quot;;</span>
+<span class="lineNum">     470 </span><span class="lineCov">        194 :         for (int i { 0 }; i &lt; max + 1; i++)</span>
+<span class="lineNum">     471 </span><span class="lineCov">        186 :                 cout &lt;&lt; i &lt;&lt; (i &gt; 9 ? &quot;  &quot; : &quot;   &quot;);</span>
+<span class="lineNum">     472 </span><span class="lineCov">          8 :         cout &lt;&lt; &quot;\n&quot;;</span>
+<span class="lineNum">     473 </span><span class="lineCov">         46 :         for (auto &amp; p : vv)</span>
+<span class="lineNum">     474 </span><span class="lineCov">        112 :                 for (auto &amp; q : p) {</span>
+<span class="lineNum">     475 </span><span class="lineCov">         74 :                         int a { }, b { }, c { };</span>
+<span class="lineNum">     476 </span><span class="lineCov">         74 :                         if (choix == 0)</span>
+<span class="lineNum">     477 </span><span class="lineCov">         37 :                                 a = q-&gt;date_tot;</span>
+<span class="lineNum">     478 </span><span class="lineCov">         37 :                         else if (choix == 1)</span>
+<span class="lineNum">     479 </span><span class="lineCov">         37 :                                 a = q-&gt;date_tard;</span>
+<span class="lineNum">     480 </span>            :                         else {
+<span class="lineNum">     481 </span><span class="lineNoCov">          0 :                                 cout &lt;&lt; &quot;Choix incorrect!&quot; &lt;&lt; endl;</span>
+<span class="lineNum">     482 </span><span class="lineNoCov">          0 :                                 return;</span>
+<span class="lineNum">     483 </span>            :                         }
+<span class="lineNum">     484 </span><span class="lineCov">         74 :                         b = q-&gt;duree;</span>
+<span class="lineNum">     485 </span><span class="lineCov">         74 :                         c = max + 1 - a - b;</span>
+<span class="lineNum">     486 </span><span class="lineCov">         74 :                         cout &lt;&lt; q-&gt;nom &lt;&lt; &quot; &quot;;</span>
+<span class="lineNum">     487 </span><span class="lineCov">        707 :                         for (int i { a }; i--;)</span>
+<span class="lineNum">     488 </span><span class="lineCov">        633 :                                 cout &lt;&lt; &quot;|   &quot;;</span>
+<span class="lineNum">     489 </span><span class="lineCov">        396 :                         for (int i { b }; i--;)</span>
+<span class="lineNum">     490 </span><span class="lineCov">        322 :                                 cout &lt;&lt; &quot;|===&quot;;</span>
+<span class="lineNum">     491 </span><span class="lineCov">        871 :                         for (int i { c }; i--;)</span>
+<span class="lineNum">     492 </span><span class="lineCov">        797 :                                 cout &lt;&lt; &quot;|   &quot;;</span>
+<span class="lineNum">     493 </span><span class="lineCov">         74 :                         cout &lt;&lt; &quot;\n&quot;;</span>
+<span class="lineNum">     494 </span>            :                 }
+<span class="lineNum">     495 </span>            : }
+<span class="lineNum">     496 </span>            : 
+<span class="lineNum">     497 </span>            : #endif /* GRAPHE_OR_H_ */
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+
+
+Programme principale.  
+
+
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include \char`\"{}Graphe\+\_\+or.\+h\char`\"{}}\\*
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries separer} ()\hypertarget{main_8cpp_a3ccfcf68b3f6010a67f9e04e6edfe5cb}{}\label{main_8cpp_a3ccfcf68b3f6010a67f9e04e6edfe5cb}
+
+\item 
+int \hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Programme principale. 
+
+\begin{DoxyAuthor}{Author}
+Victor C\+A\+R\+V\+A\+L\+HO--D\+A-\/\+R\+O\+C\+H\+A-\/\+P\+I\+T\+TA 
+
+Antoine L\+AY 
+
+Bohao LI 
+
+Antony L\+I\+E\+B\+IN 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+4 Jan 2017
+\end{DoxyDate}
+Copyright 2017 Victor C\+A\+R\+V\+A\+L\+HO--D\+A-\/\+R\+O\+C\+H\+A-\/\+P\+I\+T\+TA (victor.\+carvalho--\href{mailto:da-rocha-pitta.20160026@efrei.net}{\tt da-\/rocha-\/pitta.\+20160026@efrei.\+net}) Antoine L\+AY (\href{mailto:antoine.lay.20160095@efrei.net}{\tt antoine.\+lay.\+20160095@efrei.\+net}) Bohao LI (\href{mailto:bohao.li.20160103@efrei.net}{\tt bohao.\+li.\+20160103@efrei.\+net}) Antony L\+I\+E\+B\+IN (\href{mailto:antony.liebin.20160325@efrei.net}{\tt antony.\+liebin.\+20160325@efrei.\+net})
+
+Ce programme E\+ST UN L\+O\+G\+I\+C\+I\+EL L\+I\+B\+RE. Vous pouvez le redistribuer. 
+
+\subsection{Function Documentation}
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+Initialisation avec accolade pour des types built-\/in (depuis c++11)
+
+Calculer les successeurs de toutes les taches Trouver les etats initiaux.
+
+Detecter des circuits dans le graphe oriente, abandonner le programme s\textquotesingle{}il existe au moins un circuit.
+
+Etablir une mini table de hashage en fonction des rangs anciennement calcules.
+
+Afficher le diagramme de gantt selon les dates au plus tot de toutes les taches.
+
+Afficher le diagramme de gantt selon les dates au plus tard de toutes les taches.
