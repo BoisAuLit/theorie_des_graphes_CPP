@@ -1,18 +1,10 @@
 /**
- * @file main.cpp
- * @brief Programme principale
- * @author Victor CARVALHO--DA-ROCHA-PITTA
- * @author Antoine LAY
+ * @file Graphe_or.h
  * @author Bohao LI
- * @author Antony LIEBIN
  * @date 4 Jan 2017
  *
  * Copyright 2017
- * Victor CARVALHO--DA-ROCHA-PITTA
- * (victor.carvalho--da-rocha-pitta.20160026@efrei.net)
- * Antoine LAY (antoine.lay.20160095@efrei.net)
- * Bohao LI (bohao.li.20160103@efrei.net)
- * Antony LIEBIN (antony.liebin.20160325@efrei.net)
+ * Bohao LI (bohao.li@efrei.net)
  *
  * Ce programme EST UN LOGICIEL LIBRE. Vous pouvez le redistribuer.
  */
